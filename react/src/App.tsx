@@ -15,7 +15,7 @@ export const App = (): JSX.Element => {
   
   return (
     <div className="container">
-      <h1>Witaj drogi deweloperze!</h1>
+      <h1>Witaj drogi deweloperzex!</h1>
       <form onSubmit={onSubmit}>
         <Input 
           value={value}

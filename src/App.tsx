@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useCallback } from 'react';
 import './App.css';
+import { Input } from './components/input/Input';
+import { Select } from './components/select/Select';
 
-function App() {
+export const App = (): JSX.Element => {
+  const [value, setValue] = useState<string>('');
+  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [endMessage, setEndMessage] = useState('');
+
+  const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>)=> {
+    e.preventDefault();
+    setEndMessage(`Brawo ${value}! Wybrałeś ${selectedValue} :)`)
+  },[selectedValue, value]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Witaj drogi deweloperze!</h1>
+      <form onSubmit={onSubmit}>
+        <Input 
+          value={value}
+          setValue={setValue}
+        />
+        <Select 
+          selectedValue={selectedValue}
+          setSelectedValue={setSelectedValue}
+          optionsList={['React', 'Preact', 'Svelte']}
+        />
+        <button type="submit" className="nn-widget__submit--button">Wyślij</button>
+      </form>   
+      <h2>{endMessage}</h2>
     </div>
   );
 }
-
-export default App;

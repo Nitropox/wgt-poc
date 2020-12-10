@@ -1,5 +1,5 @@
 <script>
-  export let value;
+  export let selectedValue= '';
   export let optionsList = [];
   let openDropdown = false;
   let dropdownHovered = false;
@@ -22,7 +22,7 @@
 <div class="selectWrapper">
   <input 
     name="thing" 
-    bind:value={value}
+    value={selectedValue}
     on:focus={handleFocus} 
     on:blur={handleBlur}
   />

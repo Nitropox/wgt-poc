@@ -16,7 +16,7 @@
 	<form on:submit|preventDefault={onSubmit}>
 		<Input bind:value={name}/>
 		<Select 
-			bind:value={selectedValue}
+			bind:chosenOption={selectedValue}
 			optionsList={['React', 'Preact', 'Svelte']}
 		/>
 		<button type="submit">Wyślij</button>

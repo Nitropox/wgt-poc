@@ -1,11 +1,11 @@
 <script>
-  export let selectedValue= '';
+  export let chosenOption= '';
   export let optionsList = [];
   let openDropdown = false;
   let dropdownHovered = false;
 
   function handleClick(option) {
-    selectedValue = option;
+    chosenOption = option;
     openDropdown = false;
   }
 
@@ -22,7 +22,7 @@
 <div class="selectWrapper">
   <input 
     name="thing" 
-    value={selectedValue}
+    bind:value={chosenOption}
     on:focus={handleFocus} 
     on:blur={handleBlur}
   />
